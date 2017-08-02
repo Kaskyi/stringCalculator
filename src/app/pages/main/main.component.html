@@ -1,3 +1,20 @@
-<p>
-  main works!
-</p>
+<md-grid-list cols="6" rows="2" rowHeight="100px">
+  <md-grid-tile [colspan]="1"> </md-grid-tile>
+  <md-grid-tile [colspan]="4">
+    <md-input-container>
+      <input mdInput placeholder="Example: (1 + 2) * 4" [(ngModel)]="myInput" [formControl]="inputFormControl">
+      <md-hint *ngIf="!hasRightSymbols">You can use only: [0-9],[-+/],[()]</md-hint>
+      <md-error *ngIf="inputFormControl.hasError('IsRoundBracketsRight')">The number of parentheses is incorrect !</md-error>
+    </md-input-container>
+    <button md-raised-button (click)="calculate()">Calculate</button>
+  </md-grid-tile>
+  <md-grid-tile [colspan]="1"></md-grid-tile>
+
+  <md-grid-tile [colspan]="1"></md-grid-tile>
+  <md-grid-tile [colspan]="4">
+    <md-card>
+      <md-card-title>Result:</md-card-title>
+      <md-card-content>{{calculationResult}}</md-card-content>
+    </md-card>
+  </md-grid-tile>
+</md-grid-list>
