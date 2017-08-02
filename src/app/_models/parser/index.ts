@@ -1,13 +1,13 @@
-import { add, divide, subtract, multy, isNumber, isSign } from "app/_models/arithmetics";
-import { Varible } from "app/_models/parser/parser";
-export * from "app/_models/parser/parser";
+import { add, divide, subtract, multy, isNumber, isSign } from 'app/_models/arithmetics';
+import { Varible } from 'app/_models/parser/parser';
+export * from 'app/_models/parser/parser';
 
 export function findCloseParenthesIndex(text: string, startSearchIndex: number): number {
     let opened = 0;
     for (let i = startSearchIndex; i < text.length; i++) {
-        if (text[i] == '(') {
+        if (text[i] === '(') {
             opened++;
-        } else if (text[i] == ')') {
+        } else if (text[i] === ')') {
             opened--;
         }
         if (opened === 0) {
@@ -18,9 +18,9 @@ export function findCloseParenthesIndex(text: string, startSearchIndex: number):
 }
 
 export function findEndOfNumberIndex(text: string, startIndex: number): number {
-    for (var i = startIndex; i < text.length; i++) {
-        var e = text[i];
-        if (!isNumber(e)) return i - 1;
+    for (let i = startIndex; i < text.length; i++) {
+        const e = text[i];
+        if (!isNumber(e)) { return i - 1; }
     }
     return text.length - 1;
 }
@@ -38,8 +38,8 @@ export function calculate(f: number, sign: string, s: number): string {
 }
 
 export function CalculateVaribles(a: Varible, b: Varible): Varible {
-    if (a == null) { return b; }
-    if (b == null) { return a; }
+    if (a === null) { return b; }
+    if (b === null) { return a; }
     let av = a.value;
     if (a.sign === '-') {
         av = -a.value;
@@ -49,8 +49,8 @@ export function CalculateVaribles(a: Varible, b: Varible): Varible {
 
 export function removeSpaces(text: string): string {
     let res = '';
-    for (var i = 0; i < text.length; i++) {
-        var e = text[i];
+    for (let i = 0; i < text.length; i++) {
+        const e = text[i];
         if (!(e === ' ' || e === '\t')) {
             res += e;
         }

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './_components/header/header.component';
 import { FooterComponent } from './_components/footer/footer.component';
 import { MainComponent } from './pages/main/main.component';
+import { CalculatorService } from 'app/_services/calculator.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { MainComponent } from './pages/main/main.component';
     MdIconModule,
     MdCardModule
   ],
-  providers: [],
+  providers: [CalculatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

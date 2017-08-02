@@ -1,5 +1,5 @@
 
-import { add, divide, subtract, multy } from "app/_models/arithmetics";
+import { add, divide, subtract, multy } from 'app/_models/arithmetics';
 
 export function isNumber(text: string): boolean {
     const numbers = {
@@ -8,7 +8,7 @@ export function isNumber(text: string): boolean {
     };
 
     for (let i = 0; i < text.length; i++) {
-        let e = text[i];
+        const e = text[i];
         if (!numbers[e]) {
             return false;
         }
@@ -19,7 +19,7 @@ export function isNumber(text: string): boolean {
 export function isSign(text: string): boolean {
     const signs = ['+', '-', '*', '/'];
     for (let i = 0; i < text.length; i++) {
-        let e = text[i];
+        const e = text[i];
         if (!signs.find(s => s === e)) {
             return false;
         }
@@ -30,7 +30,7 @@ export function isSign(text: string): boolean {
 export function isParentheses(text: string): boolean {
     const numbers = ['(', ')'];
     for (let i = 0; i < text.length; i++) {
-        let e = text[i];
+        const e = text[i];
         if (!numbers.find(s => s === e)) {
             return false;
         }
@@ -41,7 +41,7 @@ export function isParentheses(text: string): boolean {
 export function hasOnlyMathSymbols(text: string): boolean {
     const mathSymbol = [' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '(', ')'];
     for (let i = 0; i < text.length; i++) {
-        let e = text[i];
+        const e = text[i];
         if (!mathSymbol.find(s => s === e)) {
             return false;
         }
@@ -52,10 +52,13 @@ export function hasOnlyMathSymbols(text: string): boolean {
 export function isCountOfRoundBracketsRight(text: string): boolean {
     let left = 0;
     let right = 0;
-    for (var i = 0; i < text.length; i++) {
-        var e = text[i];
-        if (e === '(') left++;
-        else if (e === ')') right++;
+    for (let i = 0; i < text.length; i++) {
+        const e = text[i];
+        if (e === '(') {
+            left++;
+        } else if (e === ')') {
+            right++;
+        }
     }
     return left === right;
 }

@@ -11,6 +11,10 @@ import { isCountOfRoundBracketsRight, hasOnlyMathSymbols } from 'app/_models/ari
 export class MainComponent implements OnInit {
 
   myInput = '';
+  inputFormControl = new FormControl('', [
+    Validators.required,
+    this.IsRoundBracketsRight()
+  ]);
 
   constructor(private calculatorService: CalculatorService) { }
 
@@ -37,10 +41,6 @@ export class MainComponent implements OnInit {
     };
   }
 
-  inputFormControl = new FormControl('', [
-    Validators.required,
-    this.IsRoundBracketsRight()
-  ]);
 
   calculate() {
     this.calculatorService.parseData(this.myInput);
