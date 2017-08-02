@@ -1,0 +1,7 @@
+:host() {
+    padding: 5px;
+}
+
+:host() h3 {
+    margin: 0px;
+}
